@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function call(name){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log(name);
+                    resolve(name);
+                },1000)
+            })
+        }
+        function back() {
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log('back');
+                    resolve('back');
+                },1000);
+            });
+            
+        }
+        function hell(){
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    resolve('callback hell');
+                },1000);
+            });
+        }
+        // call('kim').then(function(name1){
+        //     console.log(name1,'반가워');
+        //     return back();
+        // })
+        // .then((res) =>{
+        //     console.log(`${res}을 실행했구나`);
+        //     return hell();
+        // })
+        // .then((res2)=>{
+        //     console.log(`여기는 ${res2}`);
+        // });
+
+        //실습2
+        async function exec() {
+            let res = await call('kim');
+            console.log(res+"반가워");
+            let res1 =await back();
+            console.log(res1,"을 실행했구나");
+            let res2 =await hell()
+            console.log(`여기는 ${res2}`);
+       }
+        exec()
+       //실습3
+        function red(){
+            return new Promise((resolve, reject) => {
+                setTimeout(()=>{
+                    document.body.style.backgroundColor = 'red';
+                },1000);
+            });
+        }
+        function orange(){
+            return new Promise((resolve, reject) => {
+                setTimeout(()=>{
+                    document.body.style.backgroundColor = 'orange';
+                },1000);
+            });
+        }
+
+        red().then(()=>{
+            return orange();
+        })
+            .then(()=>{});
+      </script>
+</body>
+</html>

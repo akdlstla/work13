@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //실습3
+        function changeColor(newColor,delay){
+            return new Promise((resolve)=>{
+                setTimeout(()=>{
+                    document.body.style.backgroundColor = newColor;
+                    resolve();
+                },delay);
+            }
+        );
+        }
+        //then체이닝
+        // changeColor('red',1000)
+        //     .then(()=>{
+        //         return changeColor('orange',2000);
+        //     })
+        //     .then(() => {
+        //         return changeColor('yellow',1000);
+        //     })
+        //     .then(() => {
+        //         return changeColor('green',2000);
+        //     })
+        //     .then(() => {
+        //         return changeColor('blue',2000);
+        //     });
+        //async/await
+        async function color(){
+        await changeColor('red',1000)
+        await changeColor('orange',1000)
+        await changeColor('yellow',1000)
+        await changeColor('green',1000)
+        await changeColor('blue',1000)}
+
+        color()
+    </script>
+</body>
+</html>
