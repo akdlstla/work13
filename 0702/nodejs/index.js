@@ -3,7 +3,7 @@ const calculator = require('./module2');
 const { add, subtract, multiply, a } = require('./module2');
 
 //모듈1
-const result = connect();
+const result = connect(); //1번줄과 이름이 같아야함
 console.log(result);
 
 //모듈2
