@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 const PORT = 8000;
 
-//vire engine
+//viwe engine
 app.set('view engine', 'ejs');
 
 //정적파일세팅
