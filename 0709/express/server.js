@@ -11,7 +11,7 @@ app.get('/',(req,res)=>{
     //console.log(process.env);
     console.log(process.env.MYNAME);
     console.log(process.env.KDT);
-    console.log(process.env.NODE_ENV);
+    console.log(process.env.NODE_ENV); 
     let test
     if(process.env.NODE_ENV === 'production'){
         console.log('라이브 서버입니다.');

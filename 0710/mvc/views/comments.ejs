@@ -8,18 +8,14 @@
 <body>
     <h3>댓글모음</h3>
     <a href="/">메인으로 이동</a>
-    <br>
+    <br />
     <ul>
-        <% for(let i = 0; i < list.length; i++){ %>
-
-
-        <li>
-            <b><%= list [i].userid %></b>
-            <a href="/comment/<%= list[i].id %>"><%= list[i].comment %></a>
-            <!-- /comment/1 -->
-        </li>
-
-        <%}%>
+        <% for(let i = 0; i < list.length; i++) { %>
+            <li>
+                <b><%= list[i].userid %></b>
+                <a href="/comment/<%= list[i].id %>"><%= list[i].comment %></a>
+            </li>
+            <% } %>
     </ul>
 </body>
 </html>
