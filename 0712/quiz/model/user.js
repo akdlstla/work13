@@ -11,16 +11,20 @@ const getConn = async() =>{
 
 const user = async () =>{
     const conn = await getConn();
-    const query ='SELECT * FROM kdt13.test2';
+    const query ='SELECT * FROM test2';
     const [row] = await conn.query(query);
     console.log('model',row);
     await conn.end();
     return row;
 }
-const getUser = async (id) =>{
+const getUser = async (userid,pw) =>{
+    console.log( userid, pw)
     const conn = await getConn();
-    const query ='SELECT * FROM test2 WHERE id =?';
-    const [row] = await conn.query(query, [id]);
+    const query ='SELECT * FROM test2 WHERE userid =? AND pw=?';
+    const [row] = await conn.query(query, [userid, pw]);
+    console.log('row',row);
     await conn.end();
     return row;
 }
+
+module.exports ={user,getUser}

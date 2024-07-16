@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h3>로그인 페이지</h3>
+    <form>
+        <input type="text" id="id" placeholder="아이디">
+        <input type="password" id="pw" placeholder="비밀번호">
+        <button type="button" onclick="loginFunc()">로그인</button>
+        <br>
+        <br>
+        <div class="resultBox"></div>
+    </form>
+    <script>
+        function loginFunc () {
+            const data ={
+                userid : document.querySelector('#id').value,
+                pw : document.querySelector('#pw').value,
+            };
+            axios({
+                method: 'POST',
+                url : '/api/back/login',
+                data,
+            }).then((res) =>{
+                console.log(res);
+                if (res.data.result) {
+                    document.location.href = `/profile/${res.data.userid}`
+                }else{
+                    document.querySelector('.resultBox').innerHTML = '<span style="color: red;">로그인에 실패하였습니다.</span>'
+
+                }
+            });
+        }
+    </script>
+</body>
+</html>

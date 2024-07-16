@@ -7,3 +7,11 @@ app.use(express.json())
 
 const userRouter = require('./routes/user');
 app.use('/', userRouter);
+
+app.use('*',(req,res)=>{
+    res.status(404).render('404');
+});
+
+app.listen (PORT,()=>{
+    console.log(`http://localhost:${PORT}`);
+})
